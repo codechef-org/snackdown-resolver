@@ -74,7 +74,7 @@ public class Resolver {
 	private boolean show_info;
 	private boolean judgeQueue;
 	private boolean test;
-	private boolean lightMode;
+	private boolean lightMode = true;
 	private String displayName;
 	private String[] groupList;
 	private String[] problemList;

@@ -11,23 +11,27 @@ import java.awt.RenderingHints;
 import java.awt.Transparency;
 import java.awt.geom.GeneralPath;
 import java.awt.image.BufferedImage;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsEnvironment;
 import java.util.HashMap;
 
+import com.google.common.graph.Graph;
 import org.icpc.tools.contest.model.ContestUtil;
 import org.icpc.tools.contest.model.IContest;
 import org.icpc.tools.contest.model.IResult;
 import org.icpc.tools.contest.model.ISubmission;
 import org.icpc.tools.contest.model.Status;
+import org.icpc.tools.presentation.contest.internal.nls.Messages;
 import org.icpc.tools.presentation.contest.internal.scoreboard.AbstractScoreboardPresentation;
 
 /**
  * Utility class from drawing shaded rectangles.
  */
 public class ShadedRectangle {
-	private static final int ARC = 7;
-	private static final Color BG = new Color(40, 40, 40);
+	private static final int ARC = 5;
+	private static final Color BG = new Color(242, 242, 242);
 	// private static final Color BG = new Color(54, 54, 54, 175);
-	private static final Color BG_TEXT = new Color(196, 196, 196, 175);
+	private static final Color BG_TEXT = new Color(170, 170, 170);
 
 	private static HashMap<Integer, Image> map = new HashMap<>();
 
@@ -59,34 +63,52 @@ public class ShadedRectangle {
 			k = ICPCColors.CCOUNT / 3;
 		if (status == Status.SUBMITTED) {
 			i = 10 + k;
-			c = ICPCColors.PENDING[k];
+			c = ICPCColors.PENDING[0];
 			// c = ICPCColors.PENDING_COLOR;
 		} else if (status == Status.SOLVED) {
 			if (fts) {
 				i = 110 + k;
-				c = ICPCColors.FIRST_TO_SOLVE[k];
+				c = ICPCColors.FIRST_TO_SOLVE[0];
 			} else {
 				i = 110 + k;
-				c = ICPCColors.SOLVED[k];
+				c = ICPCColors.SOLVED[0];
 			}
 		} else if (status == Status.FAILED) {
 			i = 140 + k;
-			c = ICPCColors.FAILED[k];
+			c = ICPCColors.FAILED[0];
 		}
 
 		if (c == null || !recent)
 			return c;
 
-		return new MyGradientPaint(i, 0, 0, c, 0, h, Utility.darker(c, 0.55f));
+		return new MyGradientPaint(i, 0, 0, c, 0, h, Utility.darker(c, 0.0f));
+	}
+
+	private static Color getBorderPaint(int h, Status status, boolean recent, boolean fts, long time) {
+		Color c = null;
+
+		if (status == Status.SUBMITTED) {
+			c = new Color(222, 189, 71);
+		} else if (status == Status.SOLVED) {
+			if (fts) {
+				c = new Color(117, 188, 107);
+			} else {
+				c = new Color(117, 188, 107);
+			}
+		} else if (status == Status.FAILED) {
+			c = new Color(203, 82, 56);
+		}
+		return c;
 	}
 
 	public static void drawRoundRect(Graphics2D g, int x, int y, int w, int h, IContest contest, IResult result,
 			long time, String s) {
 		Paint paint = getPaint(h, result.getStatus(), ContestUtil.isRecent(contest, result), result.isFirstToSolve(),
 				time);
-		Color outline = null;
-		if (result.isFirstToSolve())
-			outline = ICPCColors.SOLVED_COLOR;
+		Color outline = getBorderPaint(h, result.getStatus(), ContestUtil.isRecent(contest, result), result.isFirstToSolve(),
+				time);
+//		if (result.isFirstToSolve())
+//			outline = ICPCColors.SOLVED_COLOR;
 
 		drawRoundRect(g, x, y, w, h, paint, outline, s);
 	}
@@ -117,7 +139,7 @@ public class ShadedRectangle {
 	}
 
 	public static void drawRoundRectPlain(Graphics2D g, int x, int y, int w, int h, String s) {
-		drawRoundRect(g, x, y, w, h, null, null, s);
+		drawRoundRect(g, x, y, w, h, null, new Color(170, 170, 170), s);
 	}
 
 	private static int getKey(int w, int h, Paint paint, Color outline, String s) {
@@ -135,22 +157,35 @@ public class ShadedRectangle {
 		int key = getKey(w, h, paint, outline, s);
 		Image image = map.get(key);
 		if (image != null) {
-			g.drawImage(image, x, y, null);
+			g.scale(1.0/2, 1.0/2);
+			g.drawImage(image, x*2, y*2, null);
+			g.scale(1.0*2, 1.0*2);
 			return;
 		}
-		image = createRoundRect(w, h, paint, outline, s);
+		image = createRoundRect(g, x, y, w, h, paint, outline, s);
 		map.put(key, image);
-		g.drawImage(image, x, y, null);
+		g.scale(1.0/2, 1.0/2);
+		g.drawImage(image, x*2, y*2, null);
+		g.scale(1.0*2, 1.0*2);
 	}
 
-	private static Image createRoundRect(int ww, int hh, Paint paint, Color outline, String s) {
-		Image image = new BufferedImage(ww, hh, Transparency.TRANSLUCENT);
-		Graphics2D g = (Graphics2D) image.getGraphics();
+	private static Image createRoundRect(Graphics2D g2, int x, int y, int ww, int hh, Paint paint, Color outline, String s) {
+		GraphicsConfiguration gfx_config = GraphicsEnvironment.
+				getLocalGraphicsEnvironment().getDefaultScreenDevice().
+				getDefaultConfiguration();
+//
+//		ww *= 4;
+//		hh *= 4;
+		BufferedImage new_image = gfx_config.createCompatibleImage(ww*2, hh*2, Transparency.TRANSLUCENT);
+
+		Graphics2D g = (Graphics2D) new_image.getGraphics();
 		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
 		g.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
 		g.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
+//		g.translate(x, y);
+		g.scale(2, 2);
 
 		int h = hh;
 		int w = ww;
@@ -180,7 +215,7 @@ public class ShadedRectangle {
 
 		if (outline != null) {
 			g.setColor(outline);
-			g.setStroke(new BasicStroke(2));
+			g.setStroke(new BasicStroke(1));
 			g.draw(gp);
 			g.setStroke(new BasicStroke(1));
 		}
@@ -197,15 +232,15 @@ public class ShadedRectangle {
 				FontMetrics fm = g.getFontMetrics();
 
 				if (paint == ICPCColors.PENDING_COLOR)
-					g.setColor(Color.BLACK);
+					g.setColor(new Color(54, 54, 54));
 				else
-					g.setColor(Color.white);
+					g.setColor(new Color(54, 54, 54));
 				g.drawString(s, (w - fm.stringWidth(s)) / 2, h / 2 + fm.getHeight() / 2 - fm.getDescent() + 1);
 			}
 		}
 
 		g.dispose();
 
-		return image;
+		return new_image;
 	}
 }

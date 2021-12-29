@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="667b2735-4359-436d-8727-d6dbe59b89a8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ContestModel/src/org/icpc/tools/contest/model/internal/YamlParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ContestModel/src/org/icpc/tools/contest/model/internal/YamlParserTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PresContest/src/font/OpenSans.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PresContest/src/font/open-sans.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PresContest/src/font/emoji.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/font/emoji.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/ICPCColors.java" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/ICPCColors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/ICPCFont.java" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/ICPCFont.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/ShadedRectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/ShadedRectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/nls/Messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/nls/Messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/presentations/TitledPresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/presentations/TitledPresentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/presentations/resolver/TeamListPresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/presentations/resolver/TeamListPresentation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/scoreboard/AbstractScoreboardPresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/scoreboard/AbstractScoreboardPresentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resolver/src/org/icpc/tools/resolver/Resolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/Resolver/src/org/icpc/tools/resolver/Resolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resolver/src/org/icpc/tools/resolver/ResolverUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Resolver/src/org/icpc/tools/resolver/ResolverUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +35,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-17.0.1/Contents/Home/lib/src.zip!/java.desktop/java/awt/Font.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -36,15 +50,22 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/PresContest/src/font/twemoji" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/PresContest/src/font/twemoji" />
+      <recent name="$PROJECT_DIR$/PresContest/src/font" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Resolver">
     <configuration name="BalloonUtility" type="Application" factoryName="Application">
@@ -65,7 +86,7 @@
     <configuration name="Resolver" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.icpc.tools.resolver.Resolver" />
       <module name="Resolver" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/../resolver/events.json --fast 0.15" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/../resolver/events2.json --fast 0.15" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,11 +187,24 @@
       <workItem from="1639472218351" duration="2236000" />
       <workItem from="1639561475174" duration="6562000" />
       <workItem from="1639637165120" duration="2041000" />
-      <workItem from="1640339581994" duration="901000" />
+      <workItem from="1640339581994" duration="7835000" />
+      <workItem from="1640595633839" duration="20837000" />
+      <workItem from="1640705092623" duration="6838000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

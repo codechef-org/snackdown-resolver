@@ -322,11 +322,12 @@ public class ResolverUI {
 				paintHook(g);
 			}
 		};
+
 		teamListPresentation.setSize(window.getSize());
 		teamListPresentation.addMouseListener(nullMouse);
 		teamListPresentation.setContest(contest);
 
-		final float dpi = 96;
+		final float dpi = 960;
 		float size = (window.getHeight() / 14f) * 36f / dpi;
 		messageFont = ICPCFont.deriveFont(Font.PLAIN, size);
 
@@ -487,8 +488,8 @@ public class ResolverUI {
 				setPresentation(scoreboardPresentation);
 			else if (pstep.p == PresentationStep.Presentations.JUDGE)
 				setPresentation(judgePresentation);
-			else if (pstep.p == PresentationStep.Presentations.TEAM_AWARD)
-				setPresentation(awardPresentation);
+			else if (pstep.p == PresentationStep.Presentations.TEAM_AWARD) {}
+//				setPresentation(awardPresentation);
 			else if (pstep.p == PresentationStep.Presentations.TEAM_LIST)
 				setPresentation(teamListPresentation);
 		} else {
@@ -555,8 +556,8 @@ public class ResolverUI {
 				pres2 = logoPresentation;
 			if (pres == teamListPresentation)
 				pres2 = messagePresentation;
-			if (pres == awardPresentation)
-				pres2 = teamLogoPresentation;
+//			if (pres == awardPresentation)
+//				pres2 = teamLogoPresentation;
 		} else if (screen == Screen.ORG) {
 			pres2 = orgPresentation;
 		}

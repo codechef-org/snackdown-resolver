@@ -9,10 +9,10 @@ public class ICPCColors {
 	public static final Color YELLOW = new Color(255, 223, 54);
 	public static final Color RED = new Color(196, 58, 36);
 
-	public static final Color PENDING_COLOR = new Color(230, 230, 0);
-	public static final Color SOLVED_COLOR = new Color(0, 230, 0);
-	public static final Color FIRST_TO_SOLVE_COLOR = new Color(0, 100, 0);
-	public static final Color FAILED_COLOR = new Color(240, 0, 0);
+	public static final Color PENDING_COLOR = new Color(255, 248, 193);
+	public static final Color SOLVED_COLOR = new Color(211, 249, 211);
+	public static final Color FIRST_TO_SOLVE_COLOR = new Color(211, 249, 211);
+	public static final Color FAILED_COLOR = new Color(255, 220, 220);
 
 	public static final Color GOLD2 = new Color(205, 127, 50, 96);
 	public static final Color SILVER2 = new Color(230, 232, 250, 96);
@@ -22,7 +22,7 @@ public class ICPCColors {
 	public static final Color SILVER = new Color(230, 232, 250);
 	public static final Color BRONZE = new Color(166, 125, 61);
 
-	public static final Color SELECTION_COLOR = new Color(92, 138, 231, 240);
+	public static final Color SELECTION_COLOR = new Color(231, 239, 255);
 
 	public static final int CCOUNT = 15;
 	public static Color[] PENDING = Utility.getColorsBetween(PENDING_COLOR,
