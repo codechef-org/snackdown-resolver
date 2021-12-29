@@ -478,7 +478,7 @@ public class ResolverUI {
 			teamListPresentation.scrollIt(scroll.top);
 		} else if (step instanceof ScrollStep) {
 			ScrollStep scroll = (ScrollStep) step;
-			int row = Math.max(0, scroll.row - scoreboardPresentation.getNumRows() - rowOffset + 3);
+			int row = Math.max(0, scroll.row - scoreboardPresentation.getNumRows() - rowOffset + 1);
 			scoreboardPresentation.setScrollToRow(row);
 		} else if (step instanceof PresentationStep) {
 			PresentationStep pstep = (PresentationStep) step;

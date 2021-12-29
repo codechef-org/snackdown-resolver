@@ -477,7 +477,6 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 		}
 
 		n = standing.getTime();
-
 		g.setColor(isLightMode() ? Color.BLACK : Color.WHITE);
 		g.setFont(rowFont);
 		if (n > 0) {
