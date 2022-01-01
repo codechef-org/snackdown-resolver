@@ -431,7 +431,6 @@ public class ResolverLogic {
 						// deselect
 						steps.add(new SubmissionSelectionStep(null));
 						timing.onStep(steps, State.DESELECT);
-
 						// we're done with that pending submission; find next pending submission
 						runInfo = getNextResolve();
 						// Also project standings for this run, if we have any

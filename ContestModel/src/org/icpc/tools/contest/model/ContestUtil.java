@@ -73,7 +73,7 @@ public class ContestUtil {
 	}
 
 	public static int getTimeInMin(int timeMs) {
-		return timeMs / 60000;
+		return timeMs / 1000;
 	}
 
 	/**

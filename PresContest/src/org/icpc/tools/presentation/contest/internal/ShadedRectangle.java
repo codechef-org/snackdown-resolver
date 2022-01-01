@@ -68,7 +68,7 @@ public class ShadedRectangle {
 		} else if (status == Status.SOLVED) {
 			if (fts) {
 				i = 110 + k;
-				c = ICPCColors.FIRST_TO_SOLVE[0];
+				c = new Color(173, 238, 163);
 			} else {
 				i = 110 + k;
 				c = ICPCColors.SOLVED[0];
@@ -91,7 +91,7 @@ public class ShadedRectangle {
 			c = new Color(222, 189, 71);
 		} else if (status == Status.SOLVED) {
 			if (fts) {
-				c = new Color(117, 188, 107);
+				c = new Color(78, 136, 70);
 			} else {
 				c = new Color(117, 188, 107);
 			}

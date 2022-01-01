@@ -6,11 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="667b2735-4359-436d-8727-d6dbe59b89a8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PresContest/src/font/emoji.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/font/emoji.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PresContest/src/font/twemoji/e001.svg" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/font/twemoji/e001.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContestModel/src/org/icpc/tools/contest/model/ContestUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/ContestModel/src/org/icpc/tools/contest/model/ContestUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContestModel/src/org/icpc/tools/contest/model/internal/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/ContestModel/src/org/icpc/tools/contest/model/internal/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContestModel/src/org/icpc/tools/contest/model/resolver/ResolverLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/ContestModel/src/org/icpc/tools/contest/model/resolver/ResolverLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/ShadedRectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/ShadedRectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/scoreboard/AbstractScoreboardPresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/scoreboard/AbstractScoreboardPresentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/scoreboard/ScoreboardPresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/scoreboard/ScoreboardPresentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PresCore/src/org/icpc/tools/presentation/core/PresentationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/PresCore/src/org/icpc/tools/presentation/core/PresentationWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/scoreboard/AbstractScrollingScoreboardPresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/scoreboard/AbstractScrollingScoreboardPresentation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resolver/src/org/icpc/tools/resolver/ResolverUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Resolver/src/org/icpc/tools/resolver/ResolverUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +81,7 @@
     <configuration name="Resolver" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.icpc.tools.resolver.Resolver" />
       <module name="Resolver" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/../resolver/events2.json --fast 0.15" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/../resolver/events2.json --display 1w --singleStep 30" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -185,7 +186,9 @@
       <workItem from="1640595633839" duration="20837000" />
       <workItem from="1640705092623" duration="6838000" />
       <workItem from="1640770646734" duration="271000" />
-      <workItem from="1640775006598" duration="5004000" />
+      <workItem from="1640775006598" duration="10877000" />
+      <workItem from="1640980586657" duration="1335000" />
+      <workItem from="1641061403672" duration="2975000" />
     </task>
     <servers />
   </component>

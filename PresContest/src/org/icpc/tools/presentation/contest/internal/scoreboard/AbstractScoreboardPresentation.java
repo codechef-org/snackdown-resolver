@@ -317,7 +317,7 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 		FontMetrics fm2 = g.getFontMetrics();
 
 		g.setColor(new Color(94, 102, 110));
-		g.fillRect(0, 0, width, headerHeight + 2);
+		g.fillRect(0, 0, width, headerHeight);
 
 		g.setColor(Color.WHITE);
 		int y = headerHeight / 2 + 5;
@@ -379,8 +379,6 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 				x = width - (int) (getTransitionTime() * width);
 			g.fillRect(x, 0, width, (int) rowHeight);
 		}
-		g.setColor(new Color(217, 223, 235));
-		g.drawLine(0, (int)rowHeight-2, width, (int)rowHeight);
 	}
 
 	public void drawRowBackground(Graphics2D g, int y) {
@@ -425,7 +423,7 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 				g.setColor(ICPCColors.SELECTION_COLOR);
 
 			// fill the team's bar with the appropriate selection color
-			g.fillRect(0, 0, width, (int) (rowHeight + 0.9f));
+			g.fillRect(0, 0, width, (int) (rowHeight));
 
 			// check if the selection type indicates there should be a white outline box
 //			if (selectType == SelectType.HIGHLIGHT || selectType == SelectType.FTS_HIGHLIGHT) {
@@ -476,7 +474,7 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 			text2.drawFit((int)((6+15)*vw + totalWidth + (6*vw - fm.stringWidth(s)) / 2), (int)((rowHeight-fm.getHeight())/2), (int)(6*vw));
 		}
 
-		n = standing.getTime();
+		n = standing.getTime() / 60;
 		g.setColor(isLightMode() ? Color.BLACK : Color.WHITE);
 		g.setFont(rowFont);
 		if (n > 0) {
@@ -532,7 +530,7 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 					if (r.getContestTime() > 0)
 						// add a dash, surrounded on both sides by a Unicode "HairSpace" (the thinnest
 						// available), followed by the time of the submission
-						s += "\u200A-\u200A" + ContestUtil.getTime(r.getContestTime());
+						s += "\u200A-\u200A" + ContestUtil.getTime(r.getContestTime()/60);
 				}
 
 				// fill in the center of the oval with the appropriate color and string

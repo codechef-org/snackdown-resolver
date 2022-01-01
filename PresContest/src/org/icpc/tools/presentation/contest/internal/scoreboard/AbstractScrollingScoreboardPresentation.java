@@ -1,7 +1,6 @@
 package org.icpc.tools.presentation.contest.internal.scoreboard;
 
-import java.awt.AlphaComposite;
-import java.awt.Graphics2D;
+import java.awt.*;
 
 import org.icpc.tools.contest.model.IContest;
 import org.icpc.tools.presentation.contest.internal.Animator;
@@ -76,6 +75,17 @@ public class AbstractScrollingScoreboardPresentation extends AbstractScoreboardP
 				Graphics2D g2 = (Graphics2D) g.create();
 				g2.translate(0, (int) y);
 				drawBackground(g2, i, i % 2 == 0);
+				g2.dispose();
+			}
+
+		}
+		for (int i = 0; i < numTeams; i++) {
+			float y = i * rowHeight;
+			if ((y + rowHeight - toScroll) > 0 && (y - toScroll) < (height - headerHeight)) {
+				Graphics2D g2 = (Graphics2D) g.create();
+				g2.translate(0, (int) y);
+				g2.setColor(new Color(217, 223, 235));
+				g2.drawLine(0, (int)rowHeight, width, (int)rowHeight);
 				g2.dispose();
 			}
 		}
