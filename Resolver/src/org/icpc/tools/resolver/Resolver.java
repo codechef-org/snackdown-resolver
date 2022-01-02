@@ -548,7 +548,7 @@ public class Resolver {
 			IAward[] contestAwards = finalContest.getAwards();
 			if (contestAwards == null || contestAwards.length == 0) {
 				Trace.trace(Trace.USER, "Generating awards");
-				AwardUtil.createDefaultAwards(finalContest);
+//				AwardUtil.createDefaultAwards(finalContest);
 			}
 
 			// create the official scoreboard

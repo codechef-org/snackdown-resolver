@@ -4,6 +4,6 @@
     <type id="web" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="openjdk-17" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/../output" />
+    <output url="file://$PROJECT_DIR$" />
   </component>
 </project>

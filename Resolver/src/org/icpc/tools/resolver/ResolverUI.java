@@ -303,17 +303,17 @@ public class ResolverUI {
 		};
 		judgePresentation.addMouseListener(nullMouse);
 
-		awardPresentation = new TeamAwardPresentation() {
-			@Override
-			public void paint(Graphics2D g) {
-				super.paint(g);
-				paintHook(g);
-			}
-		};
-		awardPresentation.setSize(window.getSize());
-		awardPresentation.cacheAwards(steps);
-		awardPresentation.addMouseListener(nullMouse);
-		awardPresentation.setShowInfo(showInfo);
+//		awardPresentation = new TeamAwardPresentation() {
+//			@Override
+//			public void paint(Graphics2D g) {
+//				super.paint(g);
+//				paintHook(g);
+//			}
+//		};
+//		awardPresentation.setSize(window.getSize());
+//		awardPresentation.cacheAwards(steps);
+//		awardPresentation.addMouseListener(nullMouse);
+//		awardPresentation.setShowInfo(showInfo);
 
 		teamListPresentation = new TeamListPresentation() {
 			@Override
@@ -442,7 +442,7 @@ public class ResolverUI {
 			scoreboardPresentation.setContest(state.contest);
 			teamListPresentation.setContest(state.contest);
 			judgePresentation.setContest(state.contest);
-			awardPresentation.setContest(state.contest);
+//			awardPresentation.setContest(state.contest);
 			if (teamLogoPresentation != null)
 				teamLogoPresentation.setContest(state.contest);
 			if (orgPresentation != null)
@@ -465,7 +465,7 @@ public class ResolverUI {
 			judgePresentation.setSelectedSubmission(sel.subInfo);
 		} else if (step instanceof AwardStep) {
 			AwardStep award = (AwardStep) step;
-			awardPresentation.setTeam(award.teamId);
+//			awardPresentation.setTeam(award.teamId);
 			if (teamLogoPresentation != null)
 				teamLogoPresentation.setTeam(award.teamId);
 		} else if (step instanceof ListAwardStep) {

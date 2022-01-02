@@ -15,13 +15,11 @@ import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsEnvironment;
 import java.util.HashMap;
 
-import com.google.common.graph.Graph;
 import org.icpc.tools.contest.model.ContestUtil;
 import org.icpc.tools.contest.model.IContest;
 import org.icpc.tools.contest.model.IResult;
 import org.icpc.tools.contest.model.ISubmission;
 import org.icpc.tools.contest.model.Status;
-import org.icpc.tools.presentation.contest.internal.nls.Messages;
 import org.icpc.tools.presentation.contest.internal.scoreboard.AbstractScoreboardPresentation;
 
 /**
