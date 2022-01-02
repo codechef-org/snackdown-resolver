@@ -30,6 +30,9 @@ jobs:
         distribution: 'adopt'
     - name: Build with Ant
       run: ant build
+    - uses: actions/checkout@v2
+      with:
+        ref: "${{ github.event.inputs.destBranch }}"
     - run: |
         git add --force .
         git commit -m "Add build"
