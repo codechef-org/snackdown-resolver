@@ -29,7 +29,6 @@ jobs:
         distribution: 'adopt'
     - name: Build with Ant
       run: ant build
-    - name: Push build
     - run: git add --force .
     - run: git commit -m "Add build"
     - run: git push -f --set-upstream origin "${{ github.event.inputs.destBranch }}"
