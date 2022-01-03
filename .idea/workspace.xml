@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="667b2735-4359-436d-8727-d6dbe59b89a8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PresCore/src/images/logo2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resolver/src/images/snackdown.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/ShadedRectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/ShadedRectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/presentations/resolver/SplashPresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/PresContest/src/org/icpc/tools/presentation/contest/internal/presentations/resolver/SplashPresentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PresCore/src/org/icpc/tools/presentation/core/internal/PresentationWindowImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/PresCore/src/org/icpc/tools/presentation/core/internal/PresentationWindowImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resolver/src/org/icpc/tools/resolver/Resolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/Resolver/src/org/icpc/tools/resolver/Resolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resolver/src/org/icpc/tools/resolver/ResolverUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Resolver/src/org/icpc/tools/resolver/ResolverUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +187,7 @@
       <workItem from="1641061403672" duration="5350000" />
       <workItem from="1641068952897" duration="742000" />
       <workItem from="1641122245779" duration="2356000" />
-      <workItem from="1641125983466" duration="2509000" />
+      <workItem from="1641125983466" duration="6491000" />
     </task>
     <servers />
   </component>
