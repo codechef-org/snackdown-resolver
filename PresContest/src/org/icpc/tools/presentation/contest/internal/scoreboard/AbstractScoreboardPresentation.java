@@ -52,6 +52,7 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 	protected Font rowItalicsFont;
 	public static Font statusFont;
 	public static Font problemFont;
+	public static Font problemIcon;
 
 	protected SelectType selectType = SelectType.NORMAL;
 	protected List<ITeam> selectedTeams = null;
@@ -98,11 +99,12 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 		size = tempRowHeight * 36f * 0.95f / dpi;
 		rowFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.3f);
 		rowItalicsFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.3f);
-		statusFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.5f);
-		problemFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.5f);
+		statusFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.3f);
+		problemFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.3f);
+		problemIcon = ICPCFont.deriveFont(Font.PLAIN, size * 1.4f);
 
 		rowHeight = (height - headerHeight - titleHeight) / (float) teamsPerScreen;
-		cubeHeight = (int) (rowHeight / 2.5f) - CUBE_INSET;
+		cubeHeight = (int) (rowHeight/1.5) - CUBE_INSET;
 		int newCubeWidth = (int) (((rowHeight / 1.8f) - CUBE_INSET) * 10f);
 		IContest contest = getContest();
 		if (contest != null) {
@@ -534,24 +536,24 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 				}
 
 				// fill in the center of the oval with the appropriate color and string
-				ShadedRectangle.drawRoundRect(g, xx, (int)((rowHeight-fm.getHeight())/2), 120, cubeHeight, contest, r,
+				ShadedRectangle.drawRoundRect(g, xx, (int)((rowHeight-cubeHeight)/2), 120, cubeHeight, contest, r,
 						getTimeMs(), s);
 			} else {
 				// the team has no result for the current problem;
 				// draw a round rectangle containing the problem identifier string
-				ShadedRectangle.drawRoundRectPlain(g, xx, (int)((rowHeight-fm.getHeight())/2), 120, cubeHeight,
+				ShadedRectangle.drawRoundRectPlain(g, xx, (int)((rowHeight-cubeHeight)/2), 120, cubeHeight,
 						problems[curProblem].getLabel());
 			}
 			if (runInfo != null && runInfo.getTeam().equals(team) && runInfo.getProblemIndex() == curProblem) {
-				g.setColor(new Color(92, 78, 28));
-				g.setStroke(new BasicStroke(1.5f));
+				g.setColor(new Color(57, 116, 215));
+				g.setStroke(new BasicStroke(2f));
 
 				// use elapsed time to decide whether to draw a border around the problem
 				// (makes pending runs blink)
 				float t = (count * 1.75f / 1000f) - (float) Math.floor(count * 1.75f / 1000f);
 				if (t < 0.6)
 					// draw a rounded rectangle outline around the current problem
-					g.drawRoundRect(xx, (int)((rowHeight-fm.getHeight())/2), 120, cubeHeight, 10, 10);
+					g.drawRoundRect(xx+25, (int)((rowHeight-cubeHeight)/2 - 4), 70, cubeHeight+8, 10, 10);
 
 				g.setStroke(new BasicStroke(1));
 			}

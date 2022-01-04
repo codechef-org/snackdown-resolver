@@ -51,23 +51,23 @@ public class Legend {
 		// drawing a filled full-size rectangle and then drawing a subsequent fill rectangle
 		// slightly smaller
 		g.setStroke(new BasicStroke(3));
-		ShadedRectangle.drawRoundRect(g, 0, 0, fx, fh, ICPCColors.SOLVED_COLOR);
+		ShadedRectangle.drawRoundRect(g, 0, 0, fx, fh, ICPCColors.SOLVED_COLOR, "\ue010");
 		g.setStroke(new BasicStroke(1));
 
 		// fill the above rectangle with a smaller one in the current FTS color
-		ShadedRectangle.drawRoundRect(g, 2, 2, fx - 4, fh - 4, ICPCColors.FIRST_TO_SOLVE_COLOR);
+		ShadedRectangle.drawRoundRect(g, 2, 2, fx - 4, fh - 4, ICPCColors.FIRST_TO_SOLVE_COLOR, "\ue010");
 		g.setColor(c);
 		g.drawString(TEXT[0], H_SPACING + fx, fm.getAscent() + 1);
 
-		ShadedRectangle.drawRoundRect(g, 0, V_SPACING + fh, fx, fh, ICPCColors.SOLVED_COLOR);
+		ShadedRectangle.drawRoundRect(g, 0, V_SPACING + fh, fx, fh, ICPCColors.SOLVED_COLOR, "\ue010");
 		g.setColor(c);
 		g.drawString(TEXT[1], H_SPACING + fx, V_SPACING + fh + fm.getAscent() + 1);
 
-		ShadedRectangle.drawRoundRect(g, 0, V_SPACING * 2 + fh * 2, fx, fh, ICPCColors.FAILED_COLOR);
+		ShadedRectangle.drawRoundRect(g, 0, V_SPACING * 2 + fh * 2, fx, fh, ICPCColors.FAILED_COLOR, "\ue013");
 		g.setColor(c);
 		g.drawString(TEXT[2], H_SPACING + fx, V_SPACING * 2 + fh * 2 + fm.getAscent() + 1);
 
-		ShadedRectangle.drawRoundRect(g, 0, V_SPACING * 3 + fh * 3, fx, fh, ICPCColors.PENDING_COLOR);
+		ShadedRectangle.drawRoundRect(g, 0, V_SPACING * 3 + fh * 3, fx, fh, ICPCColors.PENDING_COLOR, "\ue012");
 		g.setColor(c);
 		g.drawString(TEXT[3], H_SPACING + fx, V_SPACING * 3 + fh * 3 + fm.getAscent() + 1);
 
