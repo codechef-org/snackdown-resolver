@@ -1,0 +1,17 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js > events.json && ../../contestUtil/eventFeed.sh --validate events.json",
+    "gen": "node index.js > ../min-events.json",
+    "resolver": "../resolver.sh ../min-events.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
