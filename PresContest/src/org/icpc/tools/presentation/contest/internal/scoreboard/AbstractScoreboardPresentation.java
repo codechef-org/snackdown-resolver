@@ -50,6 +50,7 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 	protected Font headerItalicsFont;
 	protected Font rowFont;
 	protected Font rowItalicsFont;
+	protected Font scoreAndTimeFont;
 	public static Font statusFont;
 	public static Font problemFont;
 	public static Font problemIcon;
@@ -98,10 +99,11 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 		float tempRowHeight = height / (float) teamsPerScreen;
 		size = tempRowHeight * 36f * 0.95f / dpi;
 		rowFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.3f);
+		scoreAndTimeFont = ICPCFont.deriveFont(Font.BOLD, size * 1.5f);
 		rowItalicsFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.3f);
 		statusFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.3f);
 		problemFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.3f);
-		problemIcon = ICPCFont.deriveFont(Font.PLAIN, size * 1.4f);
+		problemIcon = ICPCFont.deriveFont(Font.PLAIN, size * 1.45f);
 
 		rowHeight = (height - headerHeight - titleHeight) / (float) teamsPerScreen;
 		cubeHeight = (int) (rowHeight/1.5) - CUBE_INSET;
@@ -469,7 +471,8 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 		double totalWidth = width - (6*3 + 15)*vw;
 
 		g.setColor(isLightMode() ? Color.BLACK : Color.WHITE);
-		g.setFont(rowItalicsFont);
+		g.setFont(scoreAndTimeFont);
+		fm = g.getFontMetrics();
 		if (n > 0) {
 			s = n + "";
 			TextHelper text2 = new TextHelper(g, s);
@@ -478,7 +481,7 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 
 		n = standing.getTime() / 60;
 		g.setColor(isLightMode() ? Color.BLACK : Color.WHITE);
-		g.setFont(rowFont);
+		g.setFont(scoreAndTimeFont);
 		if (n > 0) {
 			s = n + "";
 			TextHelper text3 = new TextHelper(g, s);

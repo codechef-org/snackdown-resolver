@@ -106,7 +106,7 @@ public class ShadedRectangle {
 			s = "\ue012";
 		} else if (status == Status.SOLVED) {
 			if (fts) {
-				s = "\ue010";
+				s = "\ue014";
 			} else {
 				s = "\ue010";
 			}

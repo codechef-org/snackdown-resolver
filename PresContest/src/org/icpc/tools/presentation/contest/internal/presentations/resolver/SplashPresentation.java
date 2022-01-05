@@ -31,11 +31,11 @@ public class SplashPresentation extends AbstractICPCPresentation {
 
 	@Override
 	public void init() {
-		float dpi = 96;
+		float dpi = 226;
 		float inch = height * 72f / dpi / 10f;
 		titleFont = ICPCFont.deriveFont(Font.BOLD, inch * 1.25f);
 		attrFont = ICPCFont.deriveFont(Font.PLAIN, inch * 0.3f);
-		smallFont = ICPCFont.deriveFont(Font.BOLD, inch * 0.225f);
+		smallFont = ICPCFont.deriveFont(Font.BOLD, inch * 0.5f);
 
 		image = getContest().getLogoImage((int) (width * 0.8), (int) (height * 0.5), true, true);
 
@@ -203,10 +203,10 @@ public class SplashPresentation extends AbstractICPCPresentation {
 //		String conceptOrg = Messages.splashConceptOrg;
 //		g.drawString(conceptOrg, col1 - fm2.stringWidth(conceptOrg), h);
 //
-//		g.setColor(Color.DARK_GRAY);
-//		g.setFont(smallFont);
-//		fm = g.getFontMetrics();
-//		s = Trace.getVersion();
-//		g.drawString(s, width - BORDER - fm.stringWidth(s), height - BORDER);
+		g.setColor(Color.GRAY);
+		g.setFont(smallFont);
+		fm = g.getFontMetrics();
+		s = "Credits: ICPC Resolver";
+		g.drawString(s, width - BORDER - fm.stringWidth(s), height - BORDER);
 	}
 }
