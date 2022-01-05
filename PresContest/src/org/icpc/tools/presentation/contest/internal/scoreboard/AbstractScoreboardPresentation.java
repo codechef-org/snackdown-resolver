@@ -98,8 +98,8 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 
 		float tempRowHeight = height / (float) teamsPerScreen;
 		size = tempRowHeight * 36f * 0.95f / dpi;
-		rowFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.3f);
-		scoreAndTimeFont = ICPCFont.deriveFont(Font.BOLD, size * 1.5f);
+		rowFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.5f);
+		scoreAndTimeFont = ICPCFont.deriveFont(Font.BOLD, size * 1.7f);
 		rowItalicsFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.3f);
 		statusFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.3f);
 		problemFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.3f);

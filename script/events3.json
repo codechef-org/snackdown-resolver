@@ -74,66 +74,66 @@
 {"id":74,"type":"problems","op":"create","data":{"ordinal":5,"id":33375,"label":5,"name":"MINMAXSWAP","test_data_count":5}}
 {"id":75,"type":"problems","op":"create","data":{"ordinal":6,"id":33374,"label":6,"name":"PERMLISCNSTR","test_data_count":5}}
 {"id":76,"type":"problems","op":"create","data":{"ordinal":7,"id":33345,"label":7,"name":"PSLISCNT","test_data_count":5}}
-{"id":77,"type":"teams","op":"create","data":{"id":21627,"name":"🇧🇾   gennady.korotkevich"}}
-{"id":78,"type":"teams","op":"create","data":{"id":30584,"name":"🇯🇵   uwi"}}
-{"id":79,"type":"teams","op":"create","data":{"id":31110,"name":"🇩🇪   EgorK"}}
-{"id":80,"type":"teams","op":"create","data":{"id":80417,"name":"🇨🇦   ksun48"}}
-{"id":81,"type":"teams","op":"create","data":{"id":84408,"name":"🇮🇳   lyrically"}}
-{"id":82,"type":"teams","op":"create","data":{"id":91294,"name":"🇨🇭   petr"}}
-{"id":83,"type":"teams","op":"create","data":{"id":101508,"name":"🇷🇺   ashmelev"}}
-{"id":84,"type":"teams","op":"create","data":{"id":383012,"name":"🇯🇵   akatorihasi180"}}
-{"id":85,"type":"teams","op":"create","data":{"id":477563,"name":"🇰🇷   kaizero"}}
-{"id":86,"type":"teams","op":"create","data":{"id":547723,"name":"🇹🇼   dreamoon4"}}
-{"id":87,"type":"teams","op":"create","data":{"id":561615,"name":"🇮🇳   c1_6"}}
-{"id":88,"type":"teams","op":"create","data":{"id":587609,"name":"🇮🇳   aayush9"}}
-{"id":89,"type":"teams","op":"create","data":{"id":592773,"name":"🇷🇺   merkurev"}}
-{"id":90,"type":"teams","op":"create","data":{"id":603553,"name":"🇨🇳   fjzzq2002"}}
-{"id":91,"type":"teams","op":"create","data":{"id":652013,"name":"🇰🇷   gs14004"}}
-{"id":92,"type":"teams","op":"create","data":{"id":653442,"name":"🇮🇳   karnikanay"}}
-{"id":93,"type":"teams","op":"create","data":{"id":655788,"name":"🇮🇳   jtnydv25"}}
-{"id":94,"type":"teams","op":"create","data":{"id":670084,"name":"🇵🇱   stonefeang"}}
-{"id":95,"type":"teams","op":"create","data":{"id":673246,"name":"🇮🇳   iceknight1093"}}
-{"id":96,"type":"teams","op":"create","data":{"id":732130,"name":"🇺🇸   b524"}}
-{"id":97,"type":"teams","op":"create","data":{"id":778995,"name":"🇮🇳   teja349"}}
-{"id":98,"type":"teams","op":"create","data":{"id":845418,"name":"🇷🇺   vercingetorix"}}
-{"id":99,"type":"teams","op":"create","data":{"id":914930,"name":"🇮🇳   kal013"}}
-{"id":100,"type":"teams","op":"create","data":{"id":1021012,"name":"🇮🇳   taran_1407"}}
-{"id":101,"type":"teams","op":"create","data":{"id":1021036,"name":"🇷🇺   isaf27"}}
-{"id":102,"type":"teams","op":"create","data":{"id":1056864,"name":"🇮🇳   knandy"}}
-{"id":103,"type":"teams","op":"create","data":{"id":1058089,"name":"🇷🇺   grumpy_gordon"}}
-{"id":104,"type":"teams","op":"create","data":{"id":1075125,"name":"🇮🇳   fsociety00"}}
-{"id":105,"type":"teams","op":"create","data":{"id":1107997,"name":"🇨🇳   peehs_moorhsum"}}
-{"id":106,"type":"teams","op":"create","data":{"id":1157483,"name":"🇮🇳   rahuldugar"}}
-{"id":107,"type":"teams","op":"create","data":{"id":1220320,"name":"🇮🇳   aryanc403"}}
-{"id":108,"type":"teams","op":"create","data":{"id":1235763,"name":"🇮🇳   kesh4281"}}
-{"id":109,"type":"teams","op":"create","data":{"id":1250551,"name":"🇻🇳   tranxuanbach"}}
-{"id":110,"type":"teams","op":"create","data":{"id":1293274,"name":"🇮🇳   aryan12"}}
-{"id":111,"type":"teams","op":"create","data":{"id":1389579,"name":"🇮🇳   shubham__12"}}
-{"id":112,"type":"teams","op":"create","data":{"id":1440652,"name":"🇮🇳   aditya_sheth"}}
-{"id":113,"type":"teams","op":"create","data":{"id":1443149,"name":"🇮🇳   ashley_27"}}
-{"id":114,"type":"teams","op":"create","data":{"id":1536156,"name":"🇵🇱   marcin_smu"}}
-{"id":115,"type":"teams","op":"create","data":{"id":1588847,"name":"🇮🇳   lavish315"}}
-{"id":116,"type":"teams","op":"create","data":{"id":1589693,"name":"🇮🇳   kshitij_789"}}
-{"id":117,"type":"teams","op":"create","data":{"id":1596873,"name":"🇧🇷   carolina2018"}}
-{"id":118,"type":"teams","op":"create","data":{"id":1640456,"name":"🇯🇵   maroonrk"}}
-{"id":119,"type":"teams","op":"create","data":{"id":1657467,"name":"🇮🇳   ashishthecoder"}}
-{"id":120,"type":"teams","op":"create","data":{"id":1707793,"name":"🇮🇳   explodingfrz"}}
-{"id":121,"type":"teams","op":"create","data":{"id":1712977,"name":"🇮🇳   yat_00"}}
-{"id":122,"type":"teams","op":"create","data":{"id":1732522,"name":"🇮🇳   ronnith"}}
-{"id":123,"type":"teams","op":"create","data":{"id":1764145,"name":"🇮🇳   anshugarg12"}}
-{"id":124,"type":"teams","op":"create","data":{"id":1852586,"name":"🇮🇳   ritul_kr_singh"}}
-{"id":125,"type":"teams","op":"create","data":{"id":1853234,"name":"🇷🇺   kalininn"}}
-{"id":126,"type":"teams","op":"create","data":{"id":1870951,"name":"🇮🇳   jay_1048576"}}
-{"id":127,"type":"teams","op":"create","data":{"id":1882210,"name":"🇷🇺   ormlis"}}
-{"id":128,"type":"teams","op":"create","data":{"id":1947538,"name":"🇯🇵   risujiroh"}}
-{"id":129,"type":"teams","op":"create","data":{"id":1973679,"name":"🇮🇳   rivalq"}}
-{"id":130,"type":"teams","op":"create","data":{"id":2010556,"name":"🇮🇳   rubalien"}}
-{"id":131,"type":"teams","op":"create","data":{"id":2019438,"name":"🇮🇳   kd_vinit"}}
-{"id":132,"type":"teams","op":"create","data":{"id":2094091,"name":"🇮🇳   moondancer"}}
-{"id":133,"type":"teams","op":"create","data":{"id":2561769,"name":"🇷🇺   spycheese"}}
-{"id":134,"type":"teams","op":"create","data":{"id":2567879,"name":"🇷🇺   alesya_ivanova"}}
-{"id":135,"type":"teams","op":"create","data":{"id":2630331,"name":"🇰🇷   molamola"}}
-{"id":136,"type":"teams","op":"create","data":{"id":2641162,"name":"🇮🇳   satyammm"}}
+{"id":77,"type":"teams","op":"create","data":{"id":21627,"name":"🇧🇾 gennady.korotkevich"}}
+{"id":78,"type":"teams","op":"create","data":{"id":30584,"name":"🇯🇵 uwi"}}
+{"id":79,"type":"teams","op":"create","data":{"id":31110,"name":"🇩🇪 EgorK"}}
+{"id":80,"type":"teams","op":"create","data":{"id":80417,"name":"🇨🇦 ksun48"}}
+{"id":81,"type":"teams","op":"create","data":{"id":84408,"name":"🇮🇳 lyrically"}}
+{"id":82,"type":"teams","op":"create","data":{"id":91294,"name":"🇨🇭 petr"}}
+{"id":83,"type":"teams","op":"create","data":{"id":101508,"name":"🇷🇺 ashmelev"}}
+{"id":84,"type":"teams","op":"create","data":{"id":383012,"name":"🇯🇵 akatorihasi180"}}
+{"id":85,"type":"teams","op":"create","data":{"id":477563,"name":"🇰🇷 kaizero"}}
+{"id":86,"type":"teams","op":"create","data":{"id":547723,"name":"🇹🇼 dreamoon4"}}
+{"id":87,"type":"teams","op":"create","data":{"id":561615,"name":"🇮🇳 c1_6"}}
+{"id":88,"type":"teams","op":"create","data":{"id":587609,"name":"🇮🇳 aayush9"}}
+{"id":89,"type":"teams","op":"create","data":{"id":592773,"name":"🇷🇺 merkurev"}}
+{"id":90,"type":"teams","op":"create","data":{"id":603553,"name":"🇨🇳 fjzzq2002"}}
+{"id":91,"type":"teams","op":"create","data":{"id":652013,"name":"🇰🇷 gs14004"}}
+{"id":92,"type":"teams","op":"create","data":{"id":653442,"name":"🇮🇳 karnikanay"}}
+{"id":93,"type":"teams","op":"create","data":{"id":655788,"name":"🇮🇳 jtnydv25"}}
+{"id":94,"type":"teams","op":"create","data":{"id":670084,"name":"🇵🇱 stonefeang"}}
+{"id":95,"type":"teams","op":"create","data":{"id":673246,"name":"🇮🇳 iceknight1093"}}
+{"id":96,"type":"teams","op":"create","data":{"id":732130,"name":"🇺🇸 b524"}}
+{"id":97,"type":"teams","op":"create","data":{"id":778995,"name":"🇮🇳 teja349"}}
+{"id":98,"type":"teams","op":"create","data":{"id":845418,"name":"🇷🇺 vercingetorix"}}
+{"id":99,"type":"teams","op":"create","data":{"id":914930,"name":"🇮🇳 kal013"}}
+{"id":100,"type":"teams","op":"create","data":{"id":1021012,"name":"🇮🇳 taran_1407"}}
+{"id":101,"type":"teams","op":"create","data":{"id":1021036,"name":"🇷🇺 isaf27"}}
+{"id":102,"type":"teams","op":"create","data":{"id":1056864,"name":"🇮🇳 knandy"}}
+{"id":103,"type":"teams","op":"create","data":{"id":1058089,"name":"🇷🇺 grumpy_gordon"}}
+{"id":104,"type":"teams","op":"create","data":{"id":1075125,"name":"🇮🇳 fsociety00"}}
+{"id":105,"type":"teams","op":"create","data":{"id":1107997,"name":"🇨🇳 peehs_moorhsum"}}
+{"id":106,"type":"teams","op":"create","data":{"id":1157483,"name":"🇮🇳 rahuldugar"}}
+{"id":107,"type":"teams","op":"create","data":{"id":1220320,"name":"🇮🇳 aryanc403"}}
+{"id":108,"type":"teams","op":"create","data":{"id":1235763,"name":"🇮🇳 kesh4281"}}
+{"id":109,"type":"teams","op":"create","data":{"id":1250551,"name":"🇻🇳 tranxuanbach"}}
+{"id":110,"type":"teams","op":"create","data":{"id":1293274,"name":"🇮🇳 aryan12"}}
+{"id":111,"type":"teams","op":"create","data":{"id":1389579,"name":"🇮🇳 shubham__12"}}
+{"id":112,"type":"teams","op":"create","data":{"id":1440652,"name":"🇮🇳 aditya_sheth"}}
+{"id":113,"type":"teams","op":"create","data":{"id":1443149,"name":"🇮🇳 ashley_27"}}
+{"id":114,"type":"teams","op":"create","data":{"id":1536156,"name":"🇵🇱 marcin_smu"}}
+{"id":115,"type":"teams","op":"create","data":{"id":1588847,"name":"🇮🇳 lavish315"}}
+{"id":116,"type":"teams","op":"create","data":{"id":1589693,"name":"🇮🇳 kshitij_789"}}
+{"id":117,"type":"teams","op":"create","data":{"id":1596873,"name":"🇧🇷 carolina2018"}}
+{"id":118,"type":"teams","op":"create","data":{"id":1640456,"name":"🇯🇵 maroonrk"}}
+{"id":119,"type":"teams","op":"create","data":{"id":1657467,"name":"🇮🇳 ashishthecoder"}}
+{"id":120,"type":"teams","op":"create","data":{"id":1707793,"name":"🇮🇳 explodingfrz"}}
+{"id":121,"type":"teams","op":"create","data":{"id":1712977,"name":"🇮🇳 yat_00"}}
+{"id":122,"type":"teams","op":"create","data":{"id":1732522,"name":"🇮🇳 ronnith"}}
+{"id":123,"type":"teams","op":"create","data":{"id":1764145,"name":"🇮🇳 anshugarg12"}}
+{"id":124,"type":"teams","op":"create","data":{"id":1852586,"name":"🇮🇳 ritul_kr_singh"}}
+{"id":125,"type":"teams","op":"create","data":{"id":1853234,"name":"🇷🇺 kalininn"}}
+{"id":126,"type":"teams","op":"create","data":{"id":1870951,"name":"🇮🇳 jay_1048576"}}
+{"id":127,"type":"teams","op":"create","data":{"id":1882210,"name":"🇷🇺 ormlis"}}
+{"id":128,"type":"teams","op":"create","data":{"id":1947538,"name":"🇯🇵 risujiroh"}}
+{"id":129,"type":"teams","op":"create","data":{"id":1973679,"name":"🇮🇳 rivalq"}}
+{"id":130,"type":"teams","op":"create","data":{"id":2010556,"name":"🇮🇳 rubalien"}}
+{"id":131,"type":"teams","op":"create","data":{"id":2019438,"name":"🇮🇳 kd_vinit"}}
+{"id":132,"type":"teams","op":"create","data":{"id":2094091,"name":"🇮🇳 moondancer"}}
+{"id":133,"type":"teams","op":"create","data":{"id":2561769,"name":"🇷🇺 spycheese"}}
+{"id":134,"type":"teams","op":"create","data":{"id":2567879,"name":"🇷🇺 alesya_ivanova"}}
+{"id":135,"type":"teams","op":"create","data":{"id":2630331,"name":"🇰🇷 molamola"}}
+{"id":136,"type":"teams","op":"create","data":{"id":2641162,"name":"🇮🇳 satyammm"}}
 {"id":137,"type":"state","op":"update","data":{"started":"2021-12-05T14:00:00.000Z","ended":null,"frozen":null,"thawed":null,"finalized":null,"end_of_updates":null}}
 {"id":138,"type":"submissions","op":"create","data":{"language_id":"C++","time":"2021-12-05T14:01:45.000Z","contest_time":"0:01:45.000","id":54688685,"team_id":21627,"problem_id":33372,"entry_point":33372,"files":[{"href":"contests/files/54688685"}]}}
 {"id":139,"type":"judgements","op":"create","data":{"start_time":"2021-12-05T14:01:45.000Z","start_contest_time":"0:01:45.000","end_time":"2021-12-05T14:01:45.000Z","end_contest_time":"0:01:45.000","id":"546886850","submission_id":54688685,"judgement_type_id":"WA"}}

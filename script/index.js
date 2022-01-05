@@ -134,7 +134,7 @@ function getStar(rating)
             // console.log(getStar(u.rating));
             const team = {
                 id: u.uid,
-                name: getFlag(u.country_code || 'IN') + ' ' + String.fromCodePoint(0xe000 + getStar(u.rating)) + '  ' + u.name,
+                name: getFlag(u.country_code || 'IN') + '  ' + String.fromCodePoint(0xe000 + getStar(u.rating)) + u.name,
             };
             contestEvents.addTeam(team);
         });
