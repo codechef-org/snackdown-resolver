@@ -134,7 +134,7 @@ function getStar(rating)
             // console.log(getStar(u.rating));
             const team = {
                 id: u.uid,
-                name: getFlag(u.country_code || 'IN') + '  ' + String.fromCodePoint(0xe000 + getStar(u.rating)) + u.name,
+                name: getFlag(u.country_code || 'IN') + ' ' + String.fromCodePoint(0xe000 + getStar(u.rating)) + u.name,
             };
             contestEvents.addTeam(team);
         });
@@ -190,7 +190,7 @@ function getStar(rating)
                 end_contest_time: diff_str,
                 id: `${row.id}0`,
                 submission_id: row.id,
-                judgement_type_id: verdicts_map[row.result_code] || verdicts_map[14]
+                judgement_type_id: verdicts_map[row.result_code] || verdicts_map[11]
             }
             contestEvents.addJudgement(judgement);
         });

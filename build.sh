@@ -10,7 +10,7 @@ if [ $? -eq 0 ]; then
   cp Resolver/scripts/* bin/resolver/
   cp Resolver/staging/* bin/resolver/lib
   cp eventFeeds/* bin/resolver/feeds/
-  cp scripts/events3.json bin/resolver/events.json
+  cp script/events3.json bin/resolver/events.json
   cd bin
   zip -r resolver.zip resolver
 fi

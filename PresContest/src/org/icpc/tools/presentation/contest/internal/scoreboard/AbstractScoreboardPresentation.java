@@ -442,7 +442,7 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 		IStanding standing = getContest().getStanding(team);
 		String s = standing.getRank();
 		g.setColor(isLightMode() ? Color.BLACK : Color.WHITE);
-		g.setFont(rowItalicsFont);
+		g.setFont(rowFont);
 		if (s != null) {
 			TextHelper text = new TextHelper(g, s);
 			text.drawFit((int)((6*vw - fm.stringWidth(s)) / 2), (int)((rowHeight-fm.getHeight())/2), (int) (6*vw));
