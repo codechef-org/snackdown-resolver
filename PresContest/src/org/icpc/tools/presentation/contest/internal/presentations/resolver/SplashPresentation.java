@@ -31,11 +31,11 @@ public class SplashPresentation extends AbstractICPCPresentation {
 
 	@Override
 	public void init() {
-		float dpi = 96;
+		float dpi = 226;
 		float inch = height * 72f / dpi / 10f;
 		titleFont = ICPCFont.deriveFont(Font.BOLD, inch * 1.25f);
 		attrFont = ICPCFont.deriveFont(Font.PLAIN, inch * 0.3f);
-		smallFont = ICPCFont.deriveFont(Font.BOLD, inch * 0.225f);
+		smallFont = ICPCFont.deriveFont(Font.BOLD, inch * 0.5f);
 
 		image = getContest().getLogoImage((int) (width * 0.8), (int) (height * 0.5), true, true);
 
@@ -48,7 +48,7 @@ public class SplashPresentation extends AbstractICPCPresentation {
 	private BufferedImage getIdImage() {
 		InputStream in = null;
 		try {
-			in = Thread.currentThread().getContextClassLoader().getResourceAsStream("images/id.png");
+			in = Thread.currentThread().getContextClassLoader().getResourceAsStream("images/snackdown.png");
 			return ImageScaler.scaleImage(ImageIO.read(in), width * 0.8, height * 0.5);
 		} catch (Exception e) {
 			// ignore
@@ -131,80 +131,82 @@ public class SplashPresentation extends AbstractICPCPresentation {
 
 		// ----- Attribution -----
 		int tt = h + fm2.getHeight();
-		g.setColor(Color.WHITE);
-		g.setFont(attrFont);
-		fm = g.getFontMetrics();
+//		g.setColor(Color.WHITE);
+//		g.setFont(attrFont);
+//		fm = g.getFontMetrics();
 
 		int GAP = fm.getHeight() / 3;
 		h = (int) (height - BORDER - fm.getHeight() * 5.5f - GAP * 2);
 
 		if (image != null) {
 			int m = tt + (h - fm.getAscent() - GAP - tt) / 2;
-			g.drawImage(image, (width - image.getWidth()) / 2, m - image.getHeight() / 2, null);
+			g.scale(1.0/2, 1.0/2);
+			g.drawImage(image, (width*2 - image.getWidth()) / 2, (height*2 - image.getHeight()) / 2, null);
+			g.scale(2, 2);
 		}
-
-		String title = Messages.splashTitle;
-		ShadedRectangle.drawRoundRect(g, (width - fm.stringWidth(title)) / 2 - GAP, h - fm.getAscent() - GAP,
-				fm.stringWidth(title) + GAP * 2, fm.getAscent() + GAP * 2, ICPCColors.PENDING[ICPCColors.CCOUNT / 3]);
-		g.drawString(title, (width - fm.stringWidth(title)) / 2, h);
-		h += (fm.getHeight() * 2f + GAP);
-
-		int tw = 0;
-		if (icpcToolsImage != null) {
-			tw = icpcToolsImage.getWidth() / 2;
-			g.drawImage(icpcToolsImage, (width - icpcToolsImage.getWidth()) / 2,
-					height - BORDER - icpcToolsImage.getHeight(), null);
-		}
-
-		int col1 = width / 2 - tw - BORDER;
-		int col2 = width / 2 + tw + BORDER;
-
-		GAP = fm2.getHeight() / 3;
-		String conceptBy = Messages.splashConceptBy;
-		ShadedRectangle.drawRoundRect(g, col1 - GAP - fm2.stringWidth(conceptBy), h - fm2.getAscent() - GAP,
-				fm2.stringWidth(conceptBy) + GAP * 2, fm2.getHeight() + (int) (GAP * 1.7f),
-				ICPCColors.SOLVED[ICPCColors.CCOUNT / 3]);
-		g.setColor(Color.WHITE);
-		g.setFont(smallFont);
-		g.drawString(conceptBy, col1 - fm2.stringWidth(conceptBy), h);
-
-		String implBy = Messages.splashImplBy;
-		ShadedRectangle.drawRoundRect(g, col2 - GAP, h - fm2.getAscent() - GAP, fm2.stringWidth(implBy) + GAP * 2,
-				fm2.getHeight() + (int) (GAP * 1.7f), ICPCColors.SOLVED[ICPCColors.CCOUNT / 3]);
-		g.setColor(Color.WHITE);
-		g.setFont(smallFont);
-		g.drawString(implBy, col2, h);
-		h += (fm.getHeight() * 1.5f + GAP);
-
-		g.setColor(Color.WHITE);
-		g.setFont(attrFont);
-		String conceptAttr1 = Messages.splashConceptAttr1;
-		g.drawString(conceptAttr1, col1 - fm.stringWidth(conceptAttr1), h);
-
-		g.setColor(Color.WHITE);
-		g.setFont(attrFont);
-		String implAttr = Messages.splashImplAttr;
-		g.drawString(implAttr, col2, h);
-		h += fm.getHeight();
-
-		g.setColor(Color.WHITE);
-		g.setFont(attrFont);
-		String conceptAttr2 = Messages.splashConceptAttr2;
-		g.drawString(conceptAttr2, col1 - fm.stringWidth(conceptAttr2), h);
-
-		g.setFont(smallFont);
-		String implOrg = Messages.splashImplOrg;
-		g.drawString(implOrg, col2, h);
-		h += fm.getHeight();
-
-		g.setFont(smallFont);
-		String conceptOrg = Messages.splashConceptOrg;
-		g.drawString(conceptOrg, col1 - fm2.stringWidth(conceptOrg), h);
-
-		g.setColor(Color.DARK_GRAY);
+//
+//		String title = Messages.splashTitle;
+//		ShadedRectangle.drawRoundRect(g, (width - fm.stringWidth(title)) / 2 - GAP, h - fm.getAscent() - GAP,
+//				fm.stringWidth(title) + GAP * 2, fm.getAscent() + GAP * 2, ICPCColors.PENDING[ICPCColors.CCOUNT / 3]);
+//		g.drawString(title, (width - fm.stringWidth(title)) / 2, h);
+//		h += (fm.getHeight() * 2f + GAP);
+//
+//		int tw = 0;
+//		if (icpcToolsImage != null) {
+//			tw = icpcToolsImage.getWidth() / 2;
+//			g.drawImage(icpcToolsImage, (width - icpcToolsImage.getWidth()) / 2,
+//					height - BORDER - icpcToolsImage.getHeight(), null);
+//		}
+//
+//		int col1 = width / 2 - tw - BORDER;
+//		int col2 = width / 2 + tw + BORDER;
+//
+//		GAP = fm2.getHeight() / 3;
+//		String conceptBy = Messages.splashConceptBy;
+//		ShadedRectangle.drawRoundRect(g, col1 - GAP - fm2.stringWidth(conceptBy), h - fm2.getAscent() - GAP,
+//				fm2.stringWidth(conceptBy) + GAP * 2, fm2.getHeight() + (int) (GAP * 1.7f),
+//				ICPCColors.SOLVED[ICPCColors.CCOUNT / 3]);
+//		g.setColor(Color.WHITE);
+//		g.setFont(smallFont);
+//		g.drawString(conceptBy, col1 - fm2.stringWidth(conceptBy), h);
+//
+//		String implBy = Messages.splashImplBy;
+//		ShadedRectangle.drawRoundRect(g, col2 - GAP, h - fm2.getAscent() - GAP, fm2.stringWidth(implBy) + GAP * 2,
+//				fm2.getHeight() + (int) (GAP * 1.7f), ICPCColors.SOLVED[ICPCColors.CCOUNT / 3]);
+//		g.setColor(Color.WHITE);
+//		g.setFont(smallFont);
+//		g.drawString(implBy, col2, h);
+//		h += (fm.getHeight() * 1.5f + GAP);
+//
+//		g.setColor(Color.WHITE);
+//		g.setFont(attrFont);
+//		String conceptAttr1 = Messages.splashConceptAttr1;
+//		g.drawString(conceptAttr1, col1 - fm.stringWidth(conceptAttr1), h);
+//
+//		g.setColor(Color.WHITE);
+//		g.setFont(attrFont);
+//		String implAttr = Messages.splashImplAttr;
+//		g.drawString(implAttr, col2, h);
+//		h += fm.getHeight();
+//
+//		g.setColor(Color.WHITE);
+//		g.setFont(attrFont);
+//		String conceptAttr2 = Messages.splashConceptAttr2;
+//		g.drawString(conceptAttr2, col1 - fm.stringWidth(conceptAttr2), h);
+//
+//		g.setFont(smallFont);
+//		String implOrg = Messages.splashImplOrg;
+//		g.drawString(implOrg, col2, h);
+//		h += fm.getHeight();
+//
+//		g.setFont(smallFont);
+//		String conceptOrg = Messages.splashConceptOrg;
+//		g.drawString(conceptOrg, col1 - fm2.stringWidth(conceptOrg), h);
+//
+		g.setColor(Color.GRAY);
 		g.setFont(smallFont);
 		fm = g.getFontMetrics();
-		s = Trace.getVersion();
+		s = "Credits: ICPC Resolver";
 		g.drawString(s, width - BORDER - fm.stringWidth(s), height - BORDER);
 	}
 }

@@ -86,10 +86,10 @@ public class ScoreboardPresentation extends AbstractScrollingScoreboardPresentat
 		}
 
 		// draw stats row
-		Graphics2D g2 = (Graphics2D) g.create();
-		g2.translate(0, (int) (teams.length * rowHeight));
-		drawStatsRow(g2);
-		g2.dispose();
+//		Graphics2D g2 = (Graphics2D) g.create();
+//		g2.translate(0, (int) (teams.length * rowHeight));
+//		drawStatsRow(g2);
+//		g2.dispose();
 
 		// draw an info box if that option was selected
 		if (showSubmissionInfo) {

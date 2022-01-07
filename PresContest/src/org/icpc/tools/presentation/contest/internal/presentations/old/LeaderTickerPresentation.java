@@ -51,7 +51,7 @@ public class LeaderTickerPresentation extends AbstractTickerPresentation {
 			g.drawString(rank + ": " + name, x, BORDER2 + fm.getAscent());
 			Color c = ICPCColors.SOLVED_COLOR;
 			g.translate(x, 0);
-			ShadedRectangle.drawRoundRect(g, 0, height3 - BORDER2 - cube, cube * 3 / 2, cube, c);
+			ShadedRectangle.drawRoundRect(g, 0, height3 - BORDER2 - cube, cube * 3 / 2, cube, c, "\ue010");
 
 			g.setColor(Color.WHITE);
 			Utility.drawString3D(g, solved + "", cube * 3f / 4 - fm.stringWidth(solved + "") / 2f,

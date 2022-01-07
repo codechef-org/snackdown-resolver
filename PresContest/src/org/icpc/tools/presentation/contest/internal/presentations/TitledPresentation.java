@@ -26,12 +26,12 @@ public abstract class TitledPresentation extends AbstractICPCPresentation {
 	private Font clockFont;
 
 	protected int titleHeight = 20;
-	protected int headerHeight = 20;
+	protected int headerHeight = 70;
 	private BufferedImage headerImg;
 	private boolean showClock = true;
 
 	protected void setup() {
-		final float dpi = 96;
+		final float dpi = 226;
 		float size = (int) (height * 72.0 * 0.028 / dpi);
 		titleFont = ICPCFont.deriveFont(Font.BOLD, size * 2.2f);
 		clockFont = ICPCFont.deriveFont(Font.BOLD, size * 1.25f);
@@ -89,7 +89,10 @@ public abstract class TitledPresentation extends AbstractICPCPresentation {
 		int h = 0;
 		if (isInTransition())
 			h = (int) (getTransitionTime() * headerHeight) - headerHeight;
-		g.drawImage(headerImg, 0, h + titleHeight, null);
+		g.scale(1.0/2, 1.0/2);
+		g.drawImage(headerImg, 0, 2*(h + titleHeight), null);
+		g.scale(1.0*2, 1.0*2);
+//		drawHeader(g);
 
 		if (showClock) {
 			if (getContest().getState().isFrozen())
@@ -109,8 +112,9 @@ public abstract class TitledPresentation extends AbstractICPCPresentation {
 	}
 
 	protected BufferedImage createHeaderImage() {
-		BufferedImage img = new BufferedImage(width, headerHeight, Transparency.OPAQUE);
+		BufferedImage img = new BufferedImage(width*2, headerHeight*2, Transparency.OPAQUE);
 		Graphics2D g = (Graphics2D) img.getGraphics();
+		g.scale(2, 2);
 		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);

@@ -11,6 +11,8 @@ import java.awt.RenderingHints;
 import java.awt.Transparency;
 import java.awt.geom.GeneralPath;
 import java.awt.image.BufferedImage;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsEnvironment;
 import java.util.HashMap;
 
 import org.icpc.tools.contest.model.ContestUtil;
@@ -24,10 +26,10 @@ import org.icpc.tools.presentation.contest.internal.scoreboard.AbstractScoreboar
  * Utility class from drawing shaded rectangles.
  */
 public class ShadedRectangle {
-	private static final int ARC = 7;
-	private static final Color BG = new Color(40, 40, 40);
+	private static final int ARC = 5;
+	private static final Color BG = new Color(242, 242, 242);
 	// private static final Color BG = new Color(54, 54, 54, 175);
-	private static final Color BG_TEXT = new Color(196, 196, 196, 175);
+	private static final Color BG_TEXT = new Color(170, 170, 170);
 
 	private static HashMap<Integer, Image> map = new HashMap<>();
 
@@ -59,65 +61,103 @@ public class ShadedRectangle {
 			k = ICPCColors.CCOUNT / 3;
 		if (status == Status.SUBMITTED) {
 			i = 10 + k;
-			c = ICPCColors.PENDING[k];
+			c = ICPCColors.PENDING[0];
 			// c = ICPCColors.PENDING_COLOR;
 		} else if (status == Status.SOLVED) {
 			if (fts) {
 				i = 110 + k;
-				c = ICPCColors.FIRST_TO_SOLVE[k];
+				c = new Color(142, 204, 133);
 			} else {
 				i = 110 + k;
-				c = ICPCColors.SOLVED[k];
+				c = ICPCColors.SOLVED[0];
 			}
 		} else if (status == Status.FAILED) {
 			i = 140 + k;
-			c = ICPCColors.FAILED[k];
+			c = ICPCColors.FAILED[0];
 		}
 
 		if (c == null || !recent)
 			return c;
 
-		return new MyGradientPaint(i, 0, 0, c, 0, h, Utility.darker(c, 0.55f));
+		return new MyGradientPaint(i, 0, 0, c, 0, h, Utility.darker(c, 0.0f));
+	}
+
+	private static Color getBorderPaint(int h, Status status, boolean recent, boolean fts, long time) {
+		Color c = null;
+
+		if (status == Status.SUBMITTED) {
+			c = new Color(222, 189, 71);
+		} else if (status == Status.SOLVED) {
+			if (fts) {
+				c = new Color(78, 136, 70);
+			} else {
+				c = new Color(117, 188, 107);
+			}
+		} else if (status == Status.FAILED) {
+			c = new Color(203, 82, 56);
+		}
+		return c;
+	}
+
+	private static String getIcon(Status status, boolean fts) {
+		String s = "";
+
+		if (status == Status.SUBMITTED) {
+			s = "\ue012";
+		} else if (status == Status.SOLVED) {
+			if (fts) {
+				s = "\ue014";
+			} else {
+				s = "\ue010";
+			}
+		} else if (status == Status.FAILED) {
+			s = "\ue013";
+		}
+		return s;
 	}
 
 	public static void drawRoundRect(Graphics2D g, int x, int y, int w, int h, IContest contest, IResult result,
 			long time, String s) {
 		Paint paint = getPaint(h, result.getStatus(), ContestUtil.isRecent(contest, result), result.isFirstToSolve(),
 				time);
-		Color outline = null;
-		if (result.isFirstToSolve())
-			outline = ICPCColors.SOLVED_COLOR;
+		Color outline = getBorderPaint(h, result.getStatus(), ContestUtil.isRecent(contest, result), result.isFirstToSolve(),
+				time);
+		String icon = getIcon(result.getStatus(), result.isFirstToSolve());
+//		if (result.isFirstToSolve())
+//			outline = ICPCColors.SOLVED_COLOR;
 
-		drawRoundRect(g, x, y, w, h, paint, outline, s);
+		drawRoundRect(g, x, y, w, h, paint, outline, s, icon);
 	}
 
 	public static void drawRoundRect(Graphics2D g, int x, int y, int w, int h, IContest contest, Status status,
 			int contestTime, long time, String s) {
 		Paint paint = getPaint(h, status, ContestUtil.isRecent(contest, contestTime), false, time);
-		drawRoundRect(g, x, y, w, h, paint, null, s);
+		String icon = getIcon(status, false);
+		drawRoundRect(g, x, y, w, h, paint, null, s, icon);
 	}
 
 	public static void drawRoundRect(Graphics2D g, int x, int y, int w, int h, IContest contest, ISubmission submission,
 			long time, String s) {
 		boolean isFTS = contest.isFirstToSolve(submission);
 		Paint paint = getPaint(h, contest.getStatus(submission), ContestUtil.isRecent(contest, submission), isFTS, time);
+		String icon = getIcon(contest.getStatus(submission), isFTS);
 		Color outline = null;
 		if (isFTS)
 			outline = ICPCColors.SOLVED_COLOR;
 
-		drawRoundRect(g, x, y, w, h, paint, outline, s);
+		drawRoundRect(g, x, y, w, h, paint, outline, s, icon);
 	}
 
-	public static void drawRoundRect(Graphics2D g, int x, int y, int w, int h, Paint paint) {
-		drawRoundRect(g, x, y, w, h, paint, null, null);
+	public static void drawRoundRect(Graphics2D g, int x, int y, int w, int h, Paint paint, String icon) {
+		drawRoundRect(g, x, y, w, h, paint, null, null, icon);
 	}
 
-	public static void drawRoundRect(Graphics2D g, int x, int y, int w, int h, Paint paint, Color outline) {
-		drawRoundRect(g, x, y, w, h, paint, outline, null);
+	public static void drawRoundRect(Graphics2D g, int x, int y, int w, int h, Paint paint, Color outline, String icon) {
+		drawRoundRect(g, x, y, w, h, paint, outline, null, icon);
 	}
 
 	public static void drawRoundRectPlain(Graphics2D g, int x, int y, int w, int h, String s) {
-		drawRoundRect(g, x, y, w, h, null, null, s);
+		drawRoundRect(g, x, y, w, h, null, new Color(170, 170, 170), s, "\ue011");
 	}
 
 	private static int getKey(int w, int h, Paint paint, Color outline, String s) {
@@ -131,26 +171,39 @@ public class ShadedRectangle {
 		return key;
 	}
 
-	public static void drawRoundRect(Graphics2D g, int x, int y, int w, int h, Paint paint, Color outline, String s) {
+	public static void drawRoundRect(Graphics2D g, int x, int y, int w, int h, Paint paint, Color outline, String s, String icon) {
 		int key = getKey(w, h, paint, outline, s);
 		Image image = map.get(key);
 		if (image != null) {
-			g.drawImage(image, x, y, null);
+			g.scale(1.0/2, 1.0/2);
+			g.drawImage(image, x*2, y*2, null);
+			g.scale(1.0*2, 1.0*2);
 			return;
 		}
-		image = createRoundRect(w, h, paint, outline, s);
+		image = createRoundRect(g, x, y, w, h, paint, outline, s, icon);
 		map.put(key, image);
-		g.drawImage(image, x, y, null);
+		g.scale(1.0/2, 1.0/2);
+		g.drawImage(image, x*2, y*2, null);
+		g.scale(1.0*2, 1.0*2);
 	}
 
-	private static Image createRoundRect(int ww, int hh, Paint paint, Color outline, String s) {
-		Image image = new BufferedImage(ww, hh, Transparency.TRANSLUCENT);
-		Graphics2D g = (Graphics2D) image.getGraphics();
+	private static Image createRoundRect(Graphics2D g2, int x, int y, int ww, int hh, Paint paint, Color outline, String s, String icon) {
+		GraphicsConfiguration gfx_config = GraphicsEnvironment.
+				getLocalGraphicsEnvironment().getDefaultScreenDevice().
+				getDefaultConfiguration();
+//
+//		ww *= 4;
+//		hh *= 4;
+		BufferedImage new_image = gfx_config.createCompatibleImage(ww*2, hh*2, Transparency.TRANSLUCENT);
+
+		Graphics2D g = (Graphics2D) new_image.getGraphics();
 		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
 		g.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
 		g.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
+//		g.translate(x, y);
+		g.scale(2, 2);
 
 		int h = hh;
 		int w = ww;
@@ -160,52 +213,56 @@ public class ShadedRectangle {
 			h -= 2;
 		}
 
-		GeneralPath gp = new GeneralPath();
-		gp.moveTo(ARC, 0);
-		gp.lineTo(w - ARC, 0);
-		gp.quadTo(w, 0, w, ARC);
-		gp.lineTo(w, h - ARC);
-		gp.quadTo(w, h, w - ARC, h);
-		gp.lineTo(ARC, h);
-		gp.quadTo(0, h, 0, h - ARC);
-		gp.lineTo(0, ARC);
-		gp.quadTo(0, 0, ARC, 0);
-		gp.closePath();
+//		GeneralPath gp = new GeneralPath();
+//		gp.moveTo(ARC, 0);
+//		gp.lineTo(w - ARC, 0);
+//		gp.quadTo(w, 0, w, ARC);
+//		gp.lineTo(w, h - ARC);
+//		gp.quadTo(w, h, w - ARC, h);
+//		gp.lineTo(ARC, h);
+//		gp.quadTo(0, h, 0, h - ARC);
+//		gp.lineTo(0, ARC);
+//		gp.quadTo(0, 0, ARC, 0);
+//		gp.closePath();
+//
+//		if (paint == null)
+//			g.setPaint(BG);
+//		else
+//			g.setPaint(paint);
+//		g.fill(gp);
+		g.setFont(AbstractScoreboardPresentation.problemIcon);
+		FontMetrics fm2 = g.getFontMetrics();
+		g.setColor(new Color(54, 54, 54));
+		TextHelper text = new TextHelper(g, icon);
+		text.drawFit((int)((w - fm2.stringWidth(icon)*2.2) / 2), 0, ww);
 
-		if (paint == null)
-			g.setPaint(BG);
-		else
-			g.setPaint(paint);
-		g.fill(gp);
-
-		if (outline != null) {
-			g.setColor(outline);
-			g.setStroke(new BasicStroke(2));
-			g.draw(gp);
-			g.setStroke(new BasicStroke(1));
-		}
+//		if (outline != null) {
+//			g.setColor(outline);
+//			g.setStroke(new BasicStroke(1));
+//			g.draw(gp);
+//			g.setStroke(new BasicStroke(1));
+//		}
 
 		if (s != null) {
 			if (paint == null) {
 				g.setFont(AbstractScoreboardPresentation.problemFont);
 				FontMetrics fm = g.getFontMetrics();
-
 				g.setColor(BG_TEXT);
-				g.drawString(s, (w - fm.stringWidth(s)) / 2, (h + fm.getHeight()) / 2 - fm.getDescent() + 1);
+				g.drawString(s, (w - fm.stringWidth(s)) / 2, h);
 			} else {
 				g.setFont(AbstractScoreboardPresentation.statusFont);
 				FontMetrics fm = g.getFontMetrics();
 
 				if (paint == ICPCColors.PENDING_COLOR)
-					g.setColor(Color.BLACK);
+					g.setColor(new Color(54, 54, 54));
 				else
-					g.setColor(Color.white);
-				g.drawString(s, (w - fm.stringWidth(s)) / 2, h / 2 + fm.getHeight() / 2 - fm.getDescent() + 1);
+					g.setColor(new Color(54, 54, 54));
+				g.drawString(s, (w - fm.stringWidth(s)) / 2, h);
 			}
 		}
 
 		g.dispose();
 
-		return image;
+		return new_image;
 	}
 }

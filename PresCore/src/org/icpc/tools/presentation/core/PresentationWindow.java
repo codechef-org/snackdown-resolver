@@ -26,7 +26,6 @@ public abstract class PresentationWindow extends Frame implements IPresentationH
 
 	protected PresentationWindow(String title) {
 		super(title);
-
 		addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -77,7 +76,7 @@ public abstract class PresentationWindow extends Frame implements IPresentationH
 				if ((KeyEvent.VK_Q == e.getKeyCode() || KeyEvent.VK_ESCAPE == e.getKeyCode())
 						&& (e.isControlDown() || e.isShiftDown()))
 					System.exit(0);
-
+//				System.out.println(e.getKeyCode());
 				if (currentPresentation != null)
 					currentPresentation.fireKeyEvent(e, Presentation.KEY_PRESSED);
 			}

@@ -8,7 +8,7 @@ import org.icpc.tools.contest.Trace;
 
 public class ICPCFont {
 	private static final int FONT_TYPE = Font.TRUETYPE_FONT;
-	private static final String FONT_NAME = "font/Helvetica-Plain.ttf";
+	private static final String FONT_NAME = "font/OpenSans.ttf";
 
 	private static Font MASTER_FONT;
 

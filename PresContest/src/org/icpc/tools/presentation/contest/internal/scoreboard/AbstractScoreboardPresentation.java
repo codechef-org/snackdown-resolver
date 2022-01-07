@@ -37,10 +37,10 @@ import org.icpc.tools.presentation.contest.internal.nls.Messages;
 import org.icpc.tools.presentation.contest.internal.presentations.TitledPresentation;
 
 public abstract class AbstractScoreboardPresentation extends TitledPresentation {
-	protected static final Movement ROW_MOVEMENT = new Movement(4, 7);
-	protected static final Color COLOR_TEAM_LIST = new Color(40, 192, 192);
+	protected static final Movement ROW_MOVEMENT = new Movement(7, 10);
+	protected static final Color COLOR_TEAM_LIST = new Color(231, 239, 255);
 
-	private static final int DEFAULT_TEAMS_PER_SCREEN = 12;
+	private static final int DEFAULT_TEAMS_PER_SCREEN = 15;
 	protected static final int CUBE_INSET = 5;
 
 	// the color for the blinking rounded rectangle outline on pending submissions
@@ -50,8 +50,10 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 	protected Font headerItalicsFont;
 	protected Font rowFont;
 	protected Font rowItalicsFont;
+	protected Font scoreAndTimeFont;
 	public static Font statusFont;
 	public static Font problemFont;
+	public static Font problemIcon;
 
 	protected SelectType selectType = SelectType.NORMAL;
 	protected List<ITeam> selectedTeams = null;
@@ -80,13 +82,13 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 
 	@Override
 	protected void setup() {
-		final float dpi = 96;
+		final float dpi = 226;
 
-		float size = (int) (height * 72.0 * 0.028 / dpi);
+		float size = (int) (height * 120.0 * 0.028 / dpi);
 		headerFont = ICPCFont.deriveFont(Font.BOLD, size);
 		headerItalicsFont = ICPCFont.deriveFont(Font.BOLD, size);
 
-		headerHeight = (int) (height / 50.0);
+//		headerHeight = (int) (height / 50.0);
 
 		String s = getTitle();
 		if (s == null)
@@ -96,13 +98,15 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 
 		float tempRowHeight = height / (float) teamsPerScreen;
 		size = tempRowHeight * 36f * 0.95f / dpi;
-		rowFont = ICPCFont.deriveFont(Font.BOLD, size * 1.25f);
-		rowItalicsFont = ICPCFont.deriveFont(Font.BOLD, size * 1.25f);
-		statusFont = ICPCFont.deriveFont(Font.BOLD, size * 0.7f);
-		problemFont = ICPCFont.deriveFont(Font.PLAIN, size * 0.5f);
+		rowFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.5f);
+		scoreAndTimeFont = ICPCFont.deriveFont(Font.BOLD, size * 1.7f);
+		rowItalicsFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.3f);
+		statusFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.3f);
+		problemFont = ICPCFont.deriveFont(Font.PLAIN, size * 1.3f);
+		problemIcon = ICPCFont.deriveFont(Font.PLAIN, size * 1.45f);
 
 		rowHeight = (height - headerHeight - titleHeight) / (float) teamsPerScreen;
-		cubeHeight = (int) (rowHeight / 2.5f) - CUBE_INSET;
+		cubeHeight = (int) (rowHeight/1.5) - CUBE_INSET;
 		int newCubeWidth = (int) (((rowHeight / 1.8f) - CUBE_INSET) * 10f);
 		IContest contest = getContest();
 		if (contest != null) {
@@ -310,28 +314,47 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 
 	@Override
 	protected void drawHeader(Graphics2D g) {
+		/* TODO: modify for snackdown */
 		g.setFont(rowFont);
 		FontMetrics fm = g.getFontMetrics();
 		g.setFont(headerFont);
 		FontMetrics fm2 = g.getFontMetrics();
 
-		g.setColor(isLightMode() ? Color.WHITE : Color.BLACK);
-		g.fillRect(0, 0, width, headerHeight + 2);
+		g.setColor(new Color(94, 102, 110));
+		g.fillRect(0, 0, width, headerHeight);
 
-		g.setColor(isLightMode() ? Color.BLACK : Color.WHITE);
-		g.drawLine(0, headerHeight - 1, width, headerHeight - 1);
-		int y = headerHeight - 3;
+		g.setColor(Color.WHITE);
+		int y = headerHeight / 2 + 5;
 
-		g.setFont(headerItalicsFont);
-		g.drawString(Messages.rank, BORDER + (fm.stringWidth("199") - fm2.stringWidth(Messages.rank)) / 2, y);
+		double vw = width / 100.0;
+
 		g.setFont(headerFont);
-		g.drawString(Messages.name, BORDER + fm.stringWidth("199 ") + (int) rowHeight, y);
-		g.setFont(headerItalicsFont);
-		g.drawString(Messages.solved,
-				width - BORDER - fm.stringWidth(" 9999") - (fm2.stringWidth(Messages.solved) + fm.stringWidth("99")) / 2,
-				y);
+		g.drawString(Messages.rank, (int)((6*vw - fm2.stringWidth(Messages.rank)) / 2), y);
 		g.setFont(headerFont);
-		g.drawString(Messages.time, width - BORDER - (fm2.stringWidth(Messages.time) + fm.stringWidth("9999")) / 2, y);
+		g.drawString(Messages.name, (int)(6*vw), y);
+		g.setFont(headerFont);
+
+		IContest contest = getContest();
+		IProblem[] problems = contest.getProblems();
+		int numProblems = problems.length;
+		double totalWidth = width - (6*3 + 15)*vw;
+		double extraWidth = totalWidth - 120 * numProblems;
+		double padding = extraWidth / (2.0 * numProblems);
+
+		for (int curProblem = 0; curProblem < numProblems; curProblem++) {
+			int xx = (int)((15+6)*vw + curProblem * (120 + padding));
+			if (curProblem > 0) xx += padding*curProblem;
+			g.setFont(headerFont);
+			g.drawString(
+					problems[curProblem].getName(),
+					xx + (int)((120 - fm2.stringWidth(problems[curProblem].getName())) / 2.0),
+					y
+			);
+		}
+
+		g.drawString(Messages.solved, (int)(totalWidth + (15+6)*vw + (6*vw - fm2.stringWidth(Messages.solved)) / 2), y);
+		g.setFont(headerFont);
+		g.drawString(Messages.time, (int)(totalWidth + (15+6*2)*vw + (6*vw - fm2.stringWidth(Messages.time)) / 2), y);
 	}
 
 	public void drawBackground(Graphics2D g, int row, boolean oddRow) {
@@ -351,7 +374,7 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 				bg = ICPCColors.BRONZE2;
 			}
 		} else if (oddRow)
-			bg = isLightMode() ? Color.LIGHT_GRAY : BG_COLOR;
+			bg = isLightMode() ? Color.WHITE : BG_COLOR;
 
 		if (bg != null) {
 			g.setColor(bg);
@@ -363,7 +386,7 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 	}
 
 	public void drawRowBackground(Graphics2D g, int y) {
-		g.setColor(isLightMode() ? Color.LIGHT_GRAY : BG_COLOR);
+		g.setColor(isLightMode() ? Color.WHITE : BG_COLOR);
 		g.fillRect(0, y, width, (int) rowHeight);
 	}
 
@@ -389,26 +412,28 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 	 */
 	protected void drawTeamGrid(Graphics2D g, ITeam team) {
 		// make sure we have selected a team
+		double vw = width / 100.0;
+
 		if ((selectedTeams != null && selectedTeams.contains(team))
 				|| (focusOnTeamId != null && focusOnTeamId.equals(team.getId()))) {
 
 			// we have a selected team; choose selection (background) color based on whether they
 			// are an FTS-Only team
 			if (selectType == SelectType.FTS || selectType == SelectType.FTS_HIGHLIGHT)
-				g.setColor(ICPCColors.FIRST_TO_SOLVE_COLOR);
+				g.setColor(ICPCColors.SELECTION_COLOR);
 			else if (selectType == SelectType.TEAM_LIST)
 				g.setColor(COLOR_TEAM_LIST);
 			else
 				g.setColor(ICPCColors.SELECTION_COLOR);
 
 			// fill the team's bar with the appropriate selection color
-			g.fillRect(0, 0, width, (int) (rowHeight + 0.9f));
+			g.fillRect(0, 0, width, (int) (rowHeight));
 
 			// check if the selection type indicates there should be a white outline box
-			if (selectType == SelectType.HIGHLIGHT || selectType == SelectType.FTS_HIGHLIGHT) {
-				g.setColor(isLightMode() ? Color.BLACK : Color.WHITE);
-				g.drawRect(-1, 0, width + 2, (int) (rowHeight));
-			}
+//			if (selectType == SelectType.HIGHLIGHT || selectType == SelectType.FTS_HIGHLIGHT) {
+//				g.setColor(isLightMode() ? Color.BLACK : Color.WHITE);
+//				g.drawRect(-1, 0, width + 2, (int) (rowHeight));
+//			}
 		}
 
 		g.setFont(rowFont);
@@ -417,9 +442,11 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 		IStanding standing = getContest().getStanding(team);
 		String s = standing.getRank();
 		g.setColor(isLightMode() ? Color.BLACK : Color.WHITE);
-		g.setFont(rowItalicsFont);
-		if (s != null)
-			TextImage.drawString(g, s, BORDER + (fm.stringWidth("199") - fm.stringWidth(s)) / 2, 5);
+		g.setFont(rowFont);
+		if (s != null) {
+			TextHelper text = new TextHelper(g, s);
+			text.drawFit((int)((6*vw - fm.stringWidth(s)) / 2), (int)((rowHeight-fm.getHeight())/2), (int) (6*vw));
+		}
 
 		BufferedImage img = getSmallTeamLogo(team, true);
 		if (img != null) {
@@ -436,27 +463,29 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 		g.setFont(rowFont);
 		fm = g.getFontMetrics();
 
-		int xx = BORDER + fm.stringWidth("199 ") + (int) rowHeight;
+		int xx = (int)(6*vw);
 		TextHelper text = new TextHelper(g, s);
-		text.drawFit(xx, 5, (int) (width - BORDER * 2 - fm.stringWidth("199 9 9999 ") - rowHeight));
+		text.drawFit(xx, (int)((rowHeight-fm.getHeight())/2), (int) (15*vw));
 
 		int n = standing.getNumSolved();
+		double totalWidth = width - (6*3 + 15)*vw;
 
 		g.setColor(isLightMode() ? Color.BLACK : Color.WHITE);
-		g.setFont(rowItalicsFont);
+		g.setFont(scoreAndTimeFont);
+		fm = g.getFontMetrics();
 		if (n > 0) {
 			s = n + "";
-			TextImage.drawString(g, s,
-					width - BORDER - fm.stringWidth(" 9999") - (fm.stringWidth("99") + fm.stringWidth(s)) / 2, 5);
+			TextHelper text2 = new TextHelper(g, s);
+			text2.drawFit((int)((6+15)*vw + totalWidth + (6*vw - fm.stringWidth(s)) / 2), (int)((rowHeight-fm.getHeight())/2), (int)(6*vw));
 		}
 
-		n = standing.getTime();
-
+		n = standing.getTime() / 60;
 		g.setColor(isLightMode() ? Color.BLACK : Color.WHITE);
-		g.setFont(rowFont);
+		g.setFont(scoreAndTimeFont);
 		if (n > 0) {
 			s = n + "";
-			TextImage.drawString(g, s, width - BORDER - (fm.stringWidth("9999") + fm.stringWidth(s)) / 2, 5);
+			TextHelper text3 = new TextHelper(g, s);
+			text3.drawFit((int)((6*2 + 15)*vw + totalWidth + (6*vw - fm.stringWidth(s)) / 2), (int)((rowHeight-fm.getHeight())/2), (int)(6*vw));
 		}
 	}
 
@@ -468,6 +497,9 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 	 * @param team - the team to be displayed in the specified row
 	 */
 	protected void drawTeamAndProblemGrid(Graphics2D g, ITeam team) {
+		double vw = width / 100.0;
+		double totalWidth = width - (6*3 + 15)*vw;
+
 		long count = getTimeMs();
 		// draw team rank/logo/name/numSolved/points, plus white-box highlight if appropriate
 		drawTeamGrid(g, team);
@@ -480,25 +512,15 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 		IProblem[] problems = contest.getProblems();
 		int numProblems = problems.length;
 
+		double extraWidth = totalWidth - 120 * numProblems;
+		double padding = extraWidth / (2.0 * numProblems);
+
 		// draw a rounded-rectangle representation for each problem
 		for (int curProblem = 0; curProblem < numProblems; curProblem++) {
-			// compute horizontal starting position of current problem representation (rectangle)
-			int xx = indent + curProblem * (cubeWidth + CUBE_INSET);
+			int xx = (int)((15+6)*vw + curProblem * (120 + padding));
+			if (curProblem > 0) xx += padding*curProblem;
 
 			SubmissionInfo runInfo = selectedSubmission;
-			if (runInfo != null && runInfo.getTeam().equals(team) && runInfo.getProblemIndex() == curProblem) {
-				g.setColor(PENDING_SUBMISSION_BLINK_HILIGHT_COLOR);
-				g.setStroke(new BasicStroke(3));
-
-				// use elapsed time to decide whether to draw a border around the problem
-				// (makes pending runs blink)
-				float t = (count * 1.75f / 1000f) - (float) Math.floor(count * 1.75f / 1000f);
-				if (t < 0.6)
-					// draw a rounded rectangle outline around the current problem
-					g.fillRoundRect(xx - 3, rowH + CUBE_INSET / 2 - 4, cubeWidth + 6, cubeHeight + 6, 14, 14);
-
-				g.setStroke(new BasicStroke(1));
-			}
 
 			IResult r = contest.getResult(team, curProblem);
 			if (r.getStatus() != Status.UNATTEMPTED) {
@@ -513,17 +535,30 @@ public abstract class AbstractScoreboardPresentation extends TitledPresentation 
 					if (r.getContestTime() > 0)
 						// add a dash, surrounded on both sides by a Unicode "HairSpace" (the thinnest
 						// available), followed by the time of the submission
-						s += "\u200A-\u200A" + ContestUtil.getTime(r.getContestTime());
+						s += "\u200A-\u200A" + ContestUtil.getTime(r.getContestTime()/60);
 				}
 
 				// fill in the center of the oval with the appropriate color and string
-				ShadedRectangle.drawRoundRect(g, xx, rowH + CUBE_INSET / 2 - 1, cubeWidth, cubeHeight, contest, r,
+				ShadedRectangle.drawRoundRect(g, xx, (int)((rowHeight-cubeHeight)/2), 120, cubeHeight, contest, r,
 						getTimeMs(), s);
 			} else {
 				// the team has no result for the current problem;
 				// draw a round rectangle containing the problem identifier string
-				ShadedRectangle.drawRoundRectPlain(g, xx, rowH + CUBE_INSET / 2 - 1, cubeWidth, cubeHeight,
+				ShadedRectangle.drawRoundRectPlain(g, xx, (int)((rowHeight-cubeHeight)/2), 120, cubeHeight,
 						problems[curProblem].getLabel());
+			}
+			if (runInfo != null && runInfo.getTeam().equals(team) && runInfo.getProblemIndex() == curProblem) {
+				g.setColor(new Color(57, 116, 215));
+				g.setStroke(new BasicStroke(2f));
+
+				// use elapsed time to decide whether to draw a border around the problem
+				// (makes pending runs blink)
+				float t = (count * 1.75f / 1000f) - (float) Math.floor(count * 1.75f / 1000f);
+				if (t < 0.6)
+					// draw a rounded rectangle outline around the current problem
+					g.drawRoundRect(xx+25, (int)((rowHeight-cubeHeight)/2 - 4), 70, cubeHeight+8, 10, 10);
+
+				g.setStroke(new BasicStroke(1));
 			}
 		}
 	}

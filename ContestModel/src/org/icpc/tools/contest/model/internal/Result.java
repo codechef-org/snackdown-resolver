@@ -36,7 +36,7 @@ public class Result implements IResult {
 
 	@Override
 	public int getPenaltyTime() {
-		return penalty;
+		return penalty * 60;
 	}
 
 	@Override

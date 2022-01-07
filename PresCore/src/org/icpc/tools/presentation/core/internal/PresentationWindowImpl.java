@@ -857,7 +857,7 @@ public class PresentationWindowImpl extends PresentationWindow {
 		} else {
 			if (logo == null) {
 				try {
-					logo = ImageIO.read(getClass().getClassLoader().getResource("images/logo.png"));
+					logo = ImageIO.read(getClass().getClassLoader().getResource("images/logo2.png"));
 				} catch (Exception e) {
 					Trace.trace(Trace.ERROR, "Error loading logo image " + e.getMessage());
 				}
@@ -871,11 +871,11 @@ public class PresentationWindowImpl extends PresentationWindow {
 			g.setColor(lightMode ? Color.BLACK : Color.WHITE);
 			FontMetrics fm = g.getFontMetrics();
 			String s = "No presentation assigned";
-			g.drawString(s, (d.width - fm.stringWidth(s)) / 2, (d.height) * 7 / 8);
+//			g.drawString(s, (d.width - fm.stringWidth(s)) / 2, (d.height) * 7 / 8);
 
 			g.setColor(lightMode ? Color.LIGHT_GRAY : Color.DARK_GRAY);
 			s = Trace.getVersion();
-			g.drawString(s, (d.width - fm.stringWidth(s)) / 2, d.height - 20);
+//			g.drawString(s, (d.width - fm.stringWidth(s)) / 2, d.height - 20);
 		}
 		if (showFPS) {
 			g.setFont(defaultFont);

@@ -74,7 +74,7 @@ public class Resolver {
 	private boolean show_info;
 	private boolean judgeQueue;
 	private boolean test;
-	private boolean lightMode;
+	private boolean lightMode = true;
 	private String displayName;
 	private String[] groupList;
 	private String[] problemList;
@@ -548,7 +548,7 @@ public class Resolver {
 			IAward[] contestAwards = finalContest.getAwards();
 			if (contestAwards == null || contestAwards.length == 0) {
 				Trace.trace(Trace.USER, "Generating awards");
-				AwardUtil.createDefaultAwards(finalContest);
+//				AwardUtil.createDefaultAwards(finalContest);
 			}
 
 			// create the official scoreboard
